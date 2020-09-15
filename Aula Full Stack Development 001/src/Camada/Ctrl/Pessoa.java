@@ -1,12 +1,17 @@
-package br.com.alexandre.git;
+package Camada.Ctrl;
 
 import java.util.Scanner;
+
+import Camada.Model.Pessoa_Fisica;
+import Camada.Model.Pessoa_Juridica;
 
 public class Pessoa {
    private int ID;
    private String Nome;
    private String Endereco;
 private Scanner sc;
+private Pessoa_Fisica pessoa_fisica;
+private Pessoa_Juridica pessoa_Juridica;
    
    public int getID() {
 	   return ID;
@@ -26,6 +31,18 @@ private Scanner sc;
    }
    public void setEndereco(String endereco) {
 	   Endereco = endereco;
+   }
+   public Pessoa_Juridica getPessoa_Juridica() {
+	   return pessoa_Juridica;
+   }
+   public void setPessoaJuridica(Pessoa_Juridica pessoaJuridica) {
+	   this.pessoa_Juridica = pessoaJuridica;
+   }
+   public Pessoa_Fisica getPessoa_Fisica() {
+	   return pessoa_fisica;
+   }
+   public void setPessoa_Fisica(Pessoa_Fisica pessoaFisica) {
+	   this.pessoa_fisica = pessoaFisica;
    }
    
    public void Tipo_Pessoa() {
@@ -58,10 +75,8 @@ private Scanner sc;
 	           String genero;
 	           genero = generoPessoa.nextLine();
 	           pessoa_fisica.setGenero(genero);
-	           getID();
-	           getNome();
-	           getEndereco();
 	           
+	           setPessoa_Fisica(pessoa_fisica);
 	           break;       
 	  
 	   case 2: 
@@ -75,6 +90,8 @@ private Scanner sc;
 	           String atividade;
 	           atividade = atividadeCNPJ.nextLine();
 	           pessoa_juridica.setAtividade(atividade);
+	           
+	           setPessoaJuridica(pessoa_juridica);
 	           break;
 	   default:
 		   break;

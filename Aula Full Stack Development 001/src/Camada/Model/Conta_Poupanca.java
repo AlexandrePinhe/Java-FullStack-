@@ -1,4 +1,6 @@
-package br.com.alexandre.git;
+package Camada.Model;
+
+import Camada.Ctrl.Conta;
 
 public class Conta_Poupanca extends Conta {
 	private double txCorrecao;

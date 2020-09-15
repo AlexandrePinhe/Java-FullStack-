@@ -1,4 +1,6 @@
-package br.com.alexandre.git;
+package Camada.Model;
+
+import Camada.Ctrl.Pessoa;
 
 public class Pessoa_Juridica extends Pessoa{
    private int CNPJ;

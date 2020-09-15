@@ -1,4 +1,6 @@
-package br.com.alexandre.git;
+package Camada.Model;
+
+import Camada.Ctrl.Conta;
 
 public class Conta_Especial extends Conta{
    private double limite;
