@@ -1,0 +1,8 @@
+.carros-list {
+    max-width: 2000px;
+  }
+
+  .button_carro{
+    display: flex;
+    margin-left: auto;
+  }
