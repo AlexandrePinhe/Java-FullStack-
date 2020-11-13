@@ -1,0 +1,9 @@
+.modelos-list {
+    max-width: 2000px;
+  }
+
+  .button_modelo{
+    display: flex;
+    margin-left: auto;
+    
+  }
