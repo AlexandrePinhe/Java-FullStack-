@@ -1,0 +1,74 @@
+<mat-card class="carros-list mat-elevation-23">
+    <button mat-raised-button class="button_carro" color="primary" routerLink="/carros/form">
+        Novo Carro
+    </button>
+    <mat-card-header>
+        <mat-card-title>Carros</mat-card-title>
+        <mat-card-subtitle>Lista de Carros Cadastrados</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="carros" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="ID">
+              <th mat-header-cell *matHeaderCellDef> #ID </th>
+              <td mat-cell *matCellDef="let carro"> {{carro.idCarro}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="Nome Fabricante">
+              <th mat-header-cell *matHeaderCellDef> Nome Fabricante </th>
+              <td mat-cell *matCellDef="let carro"> {{carro.fabricante.fabricanteNome}} </td>
+            </ng-container>
+            
+             <!-- Name Column -->
+             <ng-container matColumnDef="Tipo Carro">
+                <th mat-header-cell *matHeaderCellDef> Tipo Carro </th>
+                <td mat-cell *matCellDef="let carro"> {{carro.tipo}} </td>
+              </ng-container>
+
+               <!-- Name Column -->
+             <ng-container matColumnDef="Placa">
+                <th mat-header-cell *matHeaderCellDef> PLaca</th>
+                <td mat-cell *matCellDef="let carro"> {{carro.placa}} </td>
+              </ng-container>
+
+               <!-- Name Column -->
+             <ng-container matColumnDef="Ano">
+                <th mat-header-cell *matHeaderCellDef>Ano</th>
+                <td mat-cell *matCellDef="let carro"> {{carro.ano}} </td>
+              </ng-container>
+
+               <!-- Name Column -->
+             <ng-container matColumnDef="Cor">
+                <th mat-header-cell *matHeaderCellDef>Cor</th>
+                <td mat-cell *matCellDef="let carro"> {{carro.cor}} </td>
+              </ng-container>
+
+               <!-- Name Column -->
+             <ng-container matColumnDef="Nome modelo">
+                <th mat-header-cell *matHeaderCellDef> Nome Modelo</th>
+                <td mat-cell *matCellDef="let carro"> {{carro.modelo.nomeModelo}} </td>
+              </ng-container>
+
+            <!-- ação -->
+            <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef> Ações</th>
+                <td mat-cell *matCellDef="let carro"> 
+                        <button  routerLink ="/carros/update/{{carro.idCarro}}" 
+                        mat-raised-button color="primary">
+                            <i class="material-icons">edit</i>Editar</button>
+                        <button mat-raised-button color="warn" (click)="excluir(carro)">
+                            <i class="material-icons">delete </i>Excluir</button>    
+                </td>
+              </ng-container>
+          
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </mat-card-content> 
+</mat-card>
