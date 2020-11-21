@@ -1,0 +1,44 @@
+<mat-card class="fabricantes-list mat-elevation-23">
+    <button mat-raised-button class="button_new" color="primary" routerLink="/fabricantes/form">
+        Novo Fabricante
+    </button>
+    <mat-card-header>
+        <mat-card-title>Fabricantes</mat-card-title>
+        <mat-card-subtitle>Lista de Fabricantes Cadastrados</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="fabricantes" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="ID">
+              <th mat-header-cell *matHeaderCellDef> #ID </th>
+              <td mat-cell *matCellDef="let fabricante"> {{fabricante.fabricanteId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="Nome Fabricante">
+              <th mat-header-cell *matHeaderCellDef> Nome Fabricante </th>
+              <td mat-cell *matCellDef="let fabricante"> {{fabricante.fabricanteNome}} </td>
+            </ng-container>
+            
+            <!-- ação -->
+            <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef> Ações</th>
+                <td mat-cell *matCellDef="let fabricante"> 
+                        <button  routerLink ="/fabricantes/update/{{fabricante.fabricanteId}}" 
+                        mat-raised-button color="primary">
+                            <i class="material-icons">edit</i>Editar</button>
+                        <button mat-raised-button color="warn" (click)="excluir(fabricante)">
+                            <i class="material-icons">delete </i>Excluir</button>    
+                </td>
+              </ng-container>
+          
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </mat-card-content> 
+</mat-card>
