@@ -1,0 +1,49 @@
+<mat-card>
+    <mat-card-title>{{tituloPaginaCarro}}</mat-card-title>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Fabricante</mat-label>
+            <mat-select [(ngModel)] = "carro.fabricante" name="fabricante">
+                <mat-option *ngFor = "let fabricante of fabricantes" [value]="fabricante">
+                    {{fabricante.fabricanteNome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Tipo Carro"
+            [(ngModel)]="carro.tipo"
+            name="tipo">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Placa"
+            [(ngModel)]="carro.placa"
+            name="placa">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Ano"
+            [(ngModel)]="carro.ano"
+            name="ano">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Cor"
+            [(ngModel)]="carro.cor"
+            name="cor">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Modelo</mat-label>
+            <mat-select [(ngModel)] = "carro.modelo" name="modelo">
+                <mat-option *ngFor = "let modelo of modelos" [value]="modelo">
+                    {{modelo.nomeModelo}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+    <button mat-raised-button color="warn" routerLink="/carros">Cancelar</button>
+</mat-card>
