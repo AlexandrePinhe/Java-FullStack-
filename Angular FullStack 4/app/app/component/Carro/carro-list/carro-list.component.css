@@ -1,0 +1,13 @@
+.carros-list {
+  max-width: 2000px;
+}
+
+.button_new{
+  display: flex;
+  position: absolute;
+  right: 50px;
+}
+
+table{
+  width: 100%;
+}
