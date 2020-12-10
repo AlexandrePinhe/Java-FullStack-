@@ -1,0 +1,14 @@
+<h2 class="card-title">Entrar</h2>
+ <form class="form" (ngSubmit)="onSubmit()" #form="ngForm">
+      <mat-form-field>
+          <input matInput placeholder="Usuário" [(ngModel)]="usuario.login" name="login" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="password" placeholder="Senha" [(ngModel)]="usuario.senha" name="senha" autocomplete="on" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled] = "form.form.invalid">Entrar</button>
+      <p>
+          <img class="imagem" src="https://ww2.inf.ufg.br/files/uploads/SISTEMAS%20DE%20INFORMAC%C3%8C%C2%A7A%C3%8C%C2%83O-01.png"
+          alt="Imagem">
+      </p>
+ </form>

@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-title> {{tituloPagina}}</mat-card-title>
+    <form>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Nome do Usuário"
+            [(ngModel)]="usuario.nomeUsuario"
+            name="nomeUsuario">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Login"
+            [(ngModel)]="usuario.login"
+            name="login">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="myDatepicker" placeholder="Data de Nascimento"
+            [(ngModel)]="usuario.dtNascimento"
+            name="dtNascimento">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput [type] = "hide ? 'password' : 'text'" placeholder="Senha"
+            [(ngModel)]="usuario.senha"
+            name="senha">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Nível de Acesso"
+            [(ngModel)]="usuario.nivel"
+            name="nivel">
+        </mat-form-field>
+        
+
+    </form>
+    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+    <button mat-raised-button color="warn" routerLink="/usuarios">Cancelar</button>
+</mat-card>

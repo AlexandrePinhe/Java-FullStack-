@@ -1,0 +1,17 @@
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.imagem{
+    width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    align-content: center;
+}
