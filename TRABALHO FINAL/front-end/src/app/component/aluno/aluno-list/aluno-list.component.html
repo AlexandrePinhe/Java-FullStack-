@@ -1,0 +1,49 @@
+<div class="loading-shade" *ngIf="isLoadingResults" >
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  
+  <mat-card class="mat-card  mat-elevation-z3">
+    <button mat-raised-button class="button_new"  routerLink="/alunos/form">Novo Aluno</button>
+    <mat-card-header class="card-header">
+      <mat-card-title>Alunos</mat-card-title>
+      <mat-card-subtitle>Lista de Alunos Matriculados</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="alunos" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="cpf">
+          <th mat-header-cell *matHeaderCellDef mat-short-header> CPF </th>
+          <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef mat-short-header> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="endereco">
+            <th mat-header-cell *matHeaderCellDef mat-short-header> Endereço</th>
+            <td mat-cell *matCellDef="let element"> {{element.endereco}} </td>
+          </ng-container>
+  
+        <ng-container matColumnDef="acao">
+          <th mat-header-cell *matHeaderCellDef> Ações </th>
+          <td mat-cell *matCellDef="let element">
+            <a routerLink="/alunos/update/{{element.id}}" class="edit">
+              <button class = "buttonEdit" mat-raised-button ><i class="material-icons">edit</i> Editar</button>
+  
+            </a>
+            <a class="delete">
+              <button mat-raised-button color="warn" (click)="excluir (element)"><i class="material-icons">delete</i>
+                Excluir</button>
+            </a>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+  
+    </mat-card-content>
+    <mat-paginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[5, 10, 20, 10]"></mat-paginator>
+  </mat-card>

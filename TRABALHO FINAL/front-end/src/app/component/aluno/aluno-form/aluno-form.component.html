@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title> {{tituloPagina}}</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="CPF do Aluno"
+            [(ngModel)]="aluno.cpf"
+            name="cpf">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Nome do Aluno"
+            [(ngModel)]="aluno.nome"
+            name="nome">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Endereço"
+            [(ngModel)]="aluno.endereco"
+            name="endereco">
+        </mat-form-field>
+    </form>
+    <button class="buttonSalvar" mat-raised-button (click)="salvar()">Salvar</button>
+    <button mat-raised-button color="warn" routerLink="/alunos">Cancelar</button>
+</mat-card>

@@ -1,0 +1,58 @@
+<mat-card>
+    <mat-card-title>{{tituloPaginaDepartamento}}</mat-card-title>
+    <form>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="nome"
+            [(ngModel)]="departamento.nome"
+            name="nome">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="myDatepicker" placeholder="Data da Contratação"
+            [(ngModel)]="departamento.data_contratacao"
+            name="data_contratacao">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Professor</mat-label>
+            <mat-select [(ngModel)] = "departamento.matricula_prof" name="matricula_prof">
+                <mat-option *ngFor = "let matricula_prof of professores" [value]="matricula_prof">
+                    {{matricula_prof.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Curso</mat-label>
+            <mat-select [(ngModel)] = "departamento.cod_curso" name="cod_curso">
+                <mat-option *ngFor = "let cod_curso of cursos" [value]="cod_curso">
+                    {{cod_curso.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Tipo</mat-label>
+            <mat-select [(ngModel)] = "departamento.tipo_departamento" name="tipo_departamento">
+                <mat-option *ngFor = "let tipo_departamento of tipos" [value]="tipo_departamento.id">
+                    {{tipo_departamento.desc}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Ativo</mat-label>
+            <mat-select [(ngModel)] = "departamento.departamento_ativo" name="departamento_ativo">
+                <mat-option *ngFor = "let departamento_ativo of ativos" [value]="departamento_ativo.id">
+                    {{departamento_ativo.desc}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+    <button mat-raised-button color="warn" routerLink="/departamentos">Cancelar</button>
+</mat-card>

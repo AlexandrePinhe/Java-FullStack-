@@ -1,0 +1,24 @@
+.alunos-list {
+    max-width: 2000px;
+  }
+
+  .button_new{
+    display: flex;
+    position: absolute;
+    right: 50px;
+    background: rgb(22, 194, 136);
+    color: white;
+  }
+
+  table{
+    width: 100%;
+  }
+
+  .card-header{
+    background: rgb(204, 248, 214);
+ }
+
+ .buttonEdit{
+  background: rgb(22, 194, 136);
+  color: white;
+}

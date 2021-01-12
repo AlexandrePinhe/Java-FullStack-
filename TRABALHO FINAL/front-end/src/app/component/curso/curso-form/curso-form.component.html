@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-title>{{tituloPaginaCurso}}</mat-card-title>
+    <form>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="nome"
+            [(ngModel)]="curso.nome"
+            name="nome">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Disciplina</mat-label>
+            <mat-select [(ngModel)] = "curso.cod_disciplina" name="cod_disciplina">
+                <mat-option *ngFor = "let cod_disciplina of disciplinas" [value]="cod_disciplina">
+                    {{cod_disciplina.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="myDatepicker" placeholder="Data da Matrícula"
+            [(ngModel)]="curso.data_matricula"
+            name="data_matricula">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Aluno</mat-label>
+            <mat-select [(ngModel)] = "curso.id_aluno" name="id_aluno">
+                <mat-option *ngFor = "let id_aluno of alunos" [value]="id_aluno">
+                    {{id_aluno.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+    <button mat-raised-button color="warn" routerLink="/cursos">Cancelar</button>
+</mat-card>
